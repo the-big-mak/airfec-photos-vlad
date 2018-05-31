@@ -1,13 +1,14 @@
-# Project Name
+# Airfec
 
-airfec
+Recreating Airbnb item details page
+
 
 ## Related Projects
 
-https://github.com/the-big-mak/airfec-photos-vlad
-https://github.com/the-big-mak/airfec-description-brian
-https://github.com/the-big-mak/airfec-reviews-justus
-https://github.com/the-big-mak/airfec-proxy-aaron
+- https://github.com/the-big-mak/airfec-photos-vlad
+- https://github.com/the-big-mak/airfec-description-brian
+- https://github.com/the-big-mak/airfec-reviews-justus
+- https://github.com/the-big-mak/airfec-proxy-aaron
 
 ## Table of Contents
 
