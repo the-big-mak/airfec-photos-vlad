@@ -8,10 +8,19 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "nodemon server/index.js"
   },
   "dependencies": {
+    "express": "^4.16.3",
+    "jpeg-js": "^0.3.4",
+    "js-image-generator": "^1.0.2",
+    "mysql": "^2.15.0",
+    "request": "^2.87.0"
   },
   "devDependencies": {
+    "aws-sdk": "^2.249.1",
+    "aws-sign": "^0.1.2",
+    "aws4": "^1.7.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   }
 }
