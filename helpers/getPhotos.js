@@ -1,5 +1,6 @@
 const config = require('./config.js');
 const AWS = require('aws-sdk');
+const db = require('../server/connection.js');
 
 AWS.config.update({
   accessKeyId: config.header.accessKeyId,
@@ -8,11 +9,27 @@ AWS.config.update({
 });
 
 
-const transformer = (array) => {
-  return array.map((img) => 'https://s3.us-east-2.amazonaws.com/airfec/' + img.Key);
+const validUrlsGenerator = (urls) => {
+  urlReplacer(urls.map((img) => 'https://s3.us-east-2.amazonaws.com/airfec/' + img.Key));
 }
 
-const getPhotos = (callback) => {
+const urlReplacer = (arrayOfUrls) => {
+
+  const currentUrl = (urls) => {
+    return urls[Math.floor(Math.random() * urls.length)];
+  };
+
+  for (let i = 0; i < 1001; i++) {
+    let sql = `UPDATE photos SET url='${currentUrl(arrayOfUrls)}' WHERE id='${i}'`;
+    db.dbManipulator(sql, (err, data) => {
+      if (err) {
+        console.log(err);
+      };
+    });
+  };
+};
+
+const updatePhotos = () => {
 
   const bucketParams = {
      Bucket: 'airfec'
@@ -22,13 +39,12 @@ const getPhotos = (callback) => {
                                      
   s3.listObjects(bucketParams, function(err, data) {
      if (err) {
-        callback(transformer(data.Contents), null)
-        console.log("Error", err);
+      console.log("Error", err);
      } else {
-        callback(null, transformer(data.Contents))
-        console.log("Success");
+      validUrlsGenerator(data.Contents);
+      console.log(`Got ${data.Contents.length} urls from s3 server`);
      }
   });
 }
 
-module.exports.getPhotos = getPhotos;
+module.exports.updatePhotos = updatePhotos;
