@@ -11,7 +11,7 @@ AWS.config.update({
 
 const validUrlsGenerator = (urls) => {
   urlReplacer(urls.map((img) => 'https://s3.us-east-2.amazonaws.com/airfec/' + img.Key));
-}
+};
 
 const urlReplacer = (arrayOfUrls) => {
 
@@ -42,7 +42,7 @@ const updatePhotos = () => {
       console.log("Error", err);
      } else {
       validUrlsGenerator(data.Contents);
-      console.log(`Got ${data.Contents.length} urls from s3 server`);
+      // console.log(`Got ${data.Contents.length} urls from s3 server`);
      }
   });
 }

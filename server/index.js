@@ -13,5 +13,8 @@ app.get('/photos', (req, res) => {
   )
 });
 
+// suppose to update the database with pictures from s3
+// helper.updatePhotos();
+
 var PORT = PORT || 3001;
 app.listen(PORT, () => console.log(`Photos module listening on port ${PORT}!`));
