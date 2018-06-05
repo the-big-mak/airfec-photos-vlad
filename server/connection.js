@@ -10,4 +10,4 @@ const dbManipulator = (sql, callback) => {
   );
 };
 
-module.exports = {dbManipulator}
+module.exports = {dbManipulator};

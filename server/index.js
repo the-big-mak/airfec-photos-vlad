@@ -1,10 +1,13 @@
 const express = require('express');
-const app = express();
+const bodyParser = require('body-parser');
+const path = require('path');
 const db = require('./connection.js');
-const helper = require('../helpers/getPhotos.js')
+const helper = require('../helpers/getPhotos.js');
 
+const app = express();
+app.use(bodyParser.json());
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.use('/', express.static(path.join(__dirname, '../public/dist')));
 
 app.get('/photos', (req, res) => {
   let sql = 'SELECT * FROM photos';
@@ -13,7 +16,7 @@ app.get('/photos', (req, res) => {
   )
 });
 
-// suppose to update the database with pictures from s3
+// to update the database with pictures from s3
 // helper.updatePhotos();
 
 var PORT = PORT || 3001;
