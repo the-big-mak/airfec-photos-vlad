@@ -3,18 +3,18 @@ import ImageSlide from './ImageSlide.jsx'
 import Arrow from './Arrow.jsx'
 
 
- class Carousel extends React.Component {
+class Carousel extends React.Component {
     constructor (props) {
         super(props);
     
         this.state = {
-          currentImageIndex: 0
+        	currentImageIndex: 0
         };
         this.nextSlide = this.nextSlide.bind(this);
         this.previousSlide = this.previousSlide.bind(this);
-      }
+    }
 
-      previousSlide () {
+    previousSlide () {
         var imgUrls = this.props.collection;
         const lastIndex = imgUrls.length - 1;
 
@@ -28,11 +28,11 @@ import Arrow from './Arrow.jsx'
         const index =  shouldResetIndex ? lastIndex : currentImageIndex - 1;
     
         this.setState({
-          currentImageIndex: index
+        	currentImageIndex: index
         });
-      }
+    }
     
-      nextSlide () {
+    nextSlide () {
         var imgUrls = this.props.collection;
         const lastIndex = imgUrls.length - 1;
         const { currentImageIndex } = this.state;
@@ -42,7 +42,7 @@ import Arrow from './Arrow.jsx'
         this.setState({
           currentImageIndex: index
         });
-      }
+    }
 
     render () {
         return (
@@ -51,7 +51,7 @@ import Arrow from './Arrow.jsx'
 				<ImageSlide url={ this.props.collection[this.state.currentImageIndex] } />
 				<Arrow direction="right" clickFunction={ this.nextSlide } glyph="&#9654;" />
 			</div>
-          );
+        );
     }
  }
 
