@@ -47,7 +47,7 @@ class App extends React.Component {
 		<div id='main-slide'>
 			<Banner clickFunction={this.onBannerClick} room={this.state.collection[0]} />
 			{this.state.showCarousel ?
-			<Carousel collection={this.state.collection} /> :
+			<Carousel clickFunction={this.onBannerClick} collection={this.state.collection} /> :
 			null
 			}
 		</div>
