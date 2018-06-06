@@ -1,5 +1,11 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
     entry: __dirname + '/client/src/index.jsx',
+    output: {
+      filename: 'bundle.js',
+      path: __dirname + '/public/dist'
+    },
     module: {
       rules: [
         { 
@@ -9,11 +15,16 @@ module.exports = {
           query: {
             presets: ['env', 'react'],
           }
+        },
+        {
+          test: /\.scss$/,
+          use:  [  'style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
         }
       ]
     },
-    output: {
-      filename: 'bundle.js',
-      path: __dirname + '/public/dist'
-    }
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: 'style.[contenthash].css',
+      }),
+    ]
   };
