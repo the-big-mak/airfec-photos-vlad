@@ -11,10 +11,21 @@ class Carousel extends React.Component {
         };
         this.crossButtonStyles = {
             float: "right",
-            display: "block",
             marginLeft: "auto",
             marginRight: "auto",
-            cursor: 'pointer'
+            cursor: "pointer"
+        }
+        this.leftArrowButtonStyles = {
+            position: "fixed",
+            top: "50%",
+            float: "left",
+            display: "block"
+        }
+        this.rightArrowButtonStyles = {
+            position: "fixed",
+            top: "40%",
+            float: "right",
+            display: "block"
         }
         this.nextSlide = this.nextSlide.bind(this);
         this.previousSlide = this.previousSlide.bind(this);
@@ -47,16 +58,24 @@ class Carousel extends React.Component {
     render () {
         return (
 			<div className="carousel">
-                <button style={this.crossButtonStyles} onClick={this.props.clickFunction}></button>
-				<span>
-                    <Arrow direction="left" clickFunction={this.previousSlide} glyph="&#9664;" />
-                </span>
-				<span>
-                    <ImageSlide room={this.props.collection[this.state.currentImageIndex]} />
-				</span>
-				<span>
-                <Arrow direction="right" clickFunction={this.nextSlide} glyph="&#9654;" />
-				</span>
+                <button style={this.crossButtonStyles} onClick={this.props.clickFunction}>
+                &#xe079;
+                </button>
+                <div>
+                    <span>
+                        <button style={this.leftArrowButtonStyles}>
+                            <Arrow direction="left" clickFunction={this.previousSlide} glyph="&#9664;" />
+                        </button>
+                    </span>
+                    <span>
+                        <ImageSlide room={this.props.collection[this.state.currentImageIndex]} clickFunction={this.nextSlide} />
+                    </span>
+                    <span>
+                        <button style={this.rightArrowButtonStyles}>
+                            <Arrow direction="right" clickFunction={this.nextSlide} glyph="&#9654;" />
+                        </button>
+                    </span>
+                </div>
             </div>
         );
     }
