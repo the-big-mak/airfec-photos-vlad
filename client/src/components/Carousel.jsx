@@ -6,22 +6,15 @@ import Arrow from './Arrow.jsx'
 class Carousel extends React.Component {
     constructor (props) {
         super(props);
-        console.log(props);
         this.state = {
         	currentImageIndex: 0
         };
-        this.slideStyles = {
-            display: 'flex',
-            justifyContent: 'center',
-            // backgroundImage: `url(${props.room.url})`,
-            // height: '50%',
-            // width: '50%',
-            // backgroundSize: '100%',
-            //backgroundColor: "rgb(0,0,0)",
-            // backgroundRepeat: 'no-repeat',
-            // backgroundPosition: 'center',
-            opacity: 1
-        };
+        this.crossButtonStyles = {
+            float: "right",
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto"
+        }
         this.nextSlide = this.nextSlide.bind(this);
         this.previousSlide = this.previousSlide.bind(this);
     }
@@ -53,12 +46,17 @@ class Carousel extends React.Component {
     render () {
         return (
 			<div className="carousel">
-				<Arrow direction="left" clickFunction={this.previousSlide} glyph="&#9664;" />
-				<div styles={this.slideStyles}>
-                    <ImageSlide clickFunction={this.props.clickFunction} room={this.props.collection[this.state.currentImageIndex]} />
-				</div>
+                <button style={this.crossButtonStyles} onClick={this.props.clickFunction}></button>
+				<span>
+                    <Arrow direction="left" clickFunction={this.previousSlide} glyph="&#9664;" />
+                </span>
+				<span>
+                    <ImageSlide room={this.props.collection[this.state.currentImageIndex]} />
+				</span>
+				<span>
                 <Arrow direction="right" clickFunction={this.nextSlide} glyph="&#9654;" />
-			</div>
+				</span>
+            </div>
         );
     }
  }

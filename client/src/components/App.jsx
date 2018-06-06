@@ -34,10 +34,10 @@ class App extends React.Component {
 				}],
 			showCarousel: false
 		 };
-		this.onBannerClick = this.onBannerClick.bind(this);
+		this.toggleCarousel = this.toggleCarousel.bind(this);
 	}
 	
-	onBannerClick() {
+	toggleCarousel() {
 		this.setState({
 			showCarousel: !this.state.showCarousel
 		});
@@ -46,9 +46,9 @@ class App extends React.Component {
 	render() {
 		return (
 		<div id='main-slide'>
-			<Banner clickFunction={this.onBannerClick} room={this.state.collection[0]} />
+			<Banner clickFunction={this.toggleCarousel} room={this.state.collection[0]} />
 			{this.state.showCarousel ?
-			<BackgroundLayout clickFunction={this.onBannerClick} collection={this.state.collection} /> :
+			<BackgroundLayout clickFunction={this.toggleCarousel} collection={this.state.collection} /> :
 			null
 			}
 		</div>

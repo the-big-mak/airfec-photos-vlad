@@ -7,18 +7,13 @@ const ImageSlide = (props) => {
         float: "center",
         display: "block",
         marginLeft: "auto",
-        marginRight: "auto",
-        // backgroundSize: '100%',
-        // backgroundColor: "rgb(0,0,0)",
-        // backgroundRepeat: 'no-repeat',
-        opacity: 1
+        marginRight: "auto"
       }
 
     return (
         <div>
             <div className="slide">
             <img src={props.room.url} style={slideStyles}></img>
-            <button onClick={props.clickFunction}>[X]</button>
             </div>
             <div>{props.room.description}</div>
         </div>
