@@ -13,7 +13,8 @@ class Carousel extends React.Component {
             float: "right",
             display: "block",
             marginLeft: "auto",
-            marginRight: "auto"
+            marginRight: "auto",
+            cursor: 'pointer'
         }
         this.nextSlide = this.nextSlide.bind(this);
         this.previousSlide = this.previousSlide.bind(this);

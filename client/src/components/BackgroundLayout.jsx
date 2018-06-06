@@ -8,7 +8,8 @@ const BackgroundLayout = (props) => {
         top: 0, bottom: 0, left: 0, right: 0,
         background: "rgba(0,0,0, 0.9)",
         padding: "20px",
-        zIndex: 1000
+        zIndex: 1000,
+        cursor: 'pointer'
     }
 
     return (
