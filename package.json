@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "airfec-photos",
   "version": "",
   "description": "",
   "author": "",
@@ -12,6 +12,7 @@
     "react-dev": "webpack -d --watch"
   },
   "dependencies": {
+    "aws-sdk": "^2.253.1",
     "axios": "^0.18.0",
     "babel-eslint": "^8.2.3",
     "babel-polyfill": "^6.26.0",
@@ -25,7 +26,6 @@
     "styled-components": "^3.3.2"
   },
   "devDependencies": {
-    "aws-sdk": "^2.249.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",

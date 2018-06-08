@@ -20,7 +20,7 @@ class App extends React.Component {
         collection: response.data,
       });
     } catch (err) {
-      console.log(err); //eslint-disable-line
+      console.log(err);
     }
   }
 
@@ -31,9 +31,13 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.collection);
     return (
     <div id='main-slide'>
-        <Banner clickFunction={this.toggleCarousel} room={this.state.collection[0]} />
+        {this.state.collection.length > 0 ?
+        <Banner clickFunction={this.toggleCarousel} room={this.state.collection[0]} /> :
+        null
+      }
         {this.state.showCarousel ?
         <BackgroundLayout clickFunction={this.toggleCarousel} collection={this.state.collection} /> :
         null
