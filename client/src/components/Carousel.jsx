@@ -46,16 +46,14 @@ class Carousel extends React.Component {
     };
     this.nextSlide = this.nextSlide.bind(this);
     this.previousSlide = this.previousSlide.bind(this);
-    this.currectSlideDeckGenerator = this.currectSlideDeckGenerator.bind(this);
   }
 
   currectSlideDeckGenerator(collection, currentIndex) {
-    if (currentIndex < 5) {
+    if (currentIndex < 4) {
       return collection.slice(0, 7);
     }
-    return currentIndex > collection.length - 3 ? collection.slice(collection.length - 7) : collection.slice(currentIndex - 4, currentIndex + 3);
+    return currentIndex > collection.length - 3 ? collection.slice(collection.length - 7) : collection.slice(currentIndex - 3, currentIndex + 3);
   };
-
   previousSlide() {
     const imgUrls = this.props.collection;
     const lastIndex = imgUrls.length - 1;
@@ -78,10 +76,12 @@ class Carousel extends React.Component {
 
     this.setState({
       currentImageIndex: index,
+      currectSlideDeck: this.currectSlideDeckGenerator(imgUrls, index),
     });
   }
 
   render() {
+    console.log(this.state.currectSlideDeck);
     return (
       <div>
           <button style={this.crossButtonStyles} onClick={this.props.clickFunction}>
