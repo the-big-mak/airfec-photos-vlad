@@ -31,7 +31,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.collection);
     return (
     <div id='main-slide'>
         {this.state.collection.length > 0 ?
