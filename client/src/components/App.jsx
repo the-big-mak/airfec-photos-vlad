@@ -1,18 +1,49 @@
 import React from 'react';
-import Carousel from './Carousel.jsx'
+import axios from 'axios';
+import Banner from './Banner.jsx';
+import BackgroundLayout from './BackgroundLayout.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        collection : ['https://s3.us-east-2.amazonaws.com/airfec/dummy-1000x1000-ArchConversation.jpg', 'https://s3.us-east-2.amazonaws.com/airfec/dummy-1000x1000-Entrance.jpg', 'https://s3.us-east-2.amazonaws.com/airfec/dummy-1000x1000-NYSkyline.jpg']
+      collection: [],
+      showCarousel: false,
     };
+    this.toggleCarousel = this.toggleCarousel.bind(this);
+  }
+
+  async componentDidMount() {
+    try {
+      const response = await axios.get('/Photos/64');
+      this.setState({
+        collection: response.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  toggleCarousel() {
+    this.setState({
+      showCarousel: !this.state.showCarousel,
+    });
   }
 
   render() {
+    console.log(this.state.collection);
     return (
-        <Carousel collection={this.state.collection}/>
-    )
+    <div id='main-slide'>
+        {this.state.collection.length > 0 ?
+        <Banner clickFunction={this.toggleCarousel} room={this.state.collection[0]} /> :
+        null
+      }
+        {this.state.showCarousel ?
+        <BackgroundLayout clickFunction={this.toggleCarousel} collection={this.state.collection} /> :
+        null
+        }
+    </div>
+    );
   }
 }
 
