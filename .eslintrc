@@ -1,3 +1,13 @@
-module.exports = {
-  "extends": "airbnb"
-};
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+ ],
+  "rules": {
+    "max-len": [1, 150, 2, {"ignoreComments": true}],
+    "react/prop-types": 0,
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": [2]
+  },
+  "extends": ["airbnb-base"]
+}

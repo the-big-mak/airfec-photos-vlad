@@ -14,7 +14,6 @@ description VARCHAR(500) NOT NULL,
 PRIMARY KEY (ID)
 );
  /* 
-
  mysql -u root < schema.sql 
  */
 
