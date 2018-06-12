@@ -16,7 +16,7 @@ class App extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await axios.get('/Photos/64');
+      const response = await axios.get(`/Photos/${this.state.roomId}`);
       this.setState({
         collection: response.data,
       });
