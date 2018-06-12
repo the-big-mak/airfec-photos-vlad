@@ -1,49 +1,49 @@
-const cssCarouselHelper = {};
+const cssCarouselStyles = {};
 
-cssCarouselHelper.FlexCol = {
+cssCarouselStyles.FlexCol = {
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'nowrap',
   cursor: 'pointer',
 };
-cssCarouselHelper.FlexRow = {
+cssCarouselStyles.FlexRow = {
   display: 'flex',
   flexWrap: 'nowrap',
   alignItems: 'center',
   justifyContent: 'space-between',
   cursor: 'pointer',
 };
-cssCarouselHelper.CrossButtonStyles = {
+cssCarouselStyles.CrossButtonStyles = {
   alignSelf: 'flex-end',
   cursor: 'pointer',
 };
-cssCarouselHelper.LeftArrowButtonStyles = {
+cssCarouselStyles.LeftArrowButtonStyles = {
   alignContent: 'center',
   justifyContent: 'center',
   order: 1,
 };
-cssCarouselHelper.RightArrowButtonStyles = {
+cssCarouselStyles.RightArrowButtonStyles = {
   justifyContent: 'center',
   order: 3,
 };
-cssCarouselHelper.MainSlide = {
+cssCarouselStyles.MainSlide = {
   maxWidth: '650px',
   maxHeight: '480px',
   minWidth: '650px',
   minHeight: '480px',
 };
-cssCarouselHelper.ImageSlidePosition = {
+cssCarouselStyles.ImageSlidePosition = {
   alignSelf: 'center',
   alignContent: 'center',
   order: 2,
 };
-cssCarouselHelper.SlideShowFlexBox = {
+cssCarouselStyles.SlideShowFlexBox = {
   alignSelf: 'center',
   order: 4,
 };
-cssCarouselHelper.SmallSlideStyles = {
+cssCarouselStyles.SmallSlideStyles = {
   width: '100px',
   height: '67px',
 };
 
-export default cssCarouselHelper;
+export default cssCarouselStyles;
