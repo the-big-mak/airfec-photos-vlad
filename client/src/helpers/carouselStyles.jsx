@@ -37,9 +37,31 @@ cssCarouselStyles.ImageSlidePosition = {
   alignContent: 'center',
   order: 2,
 };
+cssCarouselStyles.DescriptionPosition = {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-around',
+  flexWrap: 'nowrap',
+  order: 4,
+};
+cssCarouselStyles.DescriptionStyles = {
+  display: 'inlineFlex',
+  color: 'white',
+  fontFamily: 'Circular,"Helvetica Neue",Helvetica,Arial,sans-serif',
+  fontSize: '14px',
+  lineHeight: '1.43',
+};
+cssCarouselStyles.DescriptionButton = {
+  display: 'inlineFlex',
+  background: 'none',
+  outline: 'none',
+  border: 'none',
+  color: 'white',
+};
 cssCarouselStyles.SlideShowFlexBox = {
   alignSelf: 'center',
-  order: 4,
+  order: 5,
 };
 cssCarouselStyles.SmallSlideStyles = {
   width: '100px',
