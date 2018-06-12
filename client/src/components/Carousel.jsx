@@ -3,7 +3,6 @@ import ImageSlide from './ImageSlide.jsx';
 import Arrow from './Arrow.jsx';
 import SlideShow from './SlideShow.jsx';
 
-
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
@@ -11,36 +10,48 @@ class Carousel extends React.Component {
       currentImageIndex: 0,
       currectSlideDeck: this.props.collection.slice(0, 7),
     };
-    this.crossButtonStyles = {
-      float: 'right',
-      marginLeft: 'auto',
-      marginRight: 'auto',
+    this.FlexCol = {
+      display: 'flex',
+      flexDirection: 'column',
+      flexWrap: 'nowrap',
       cursor: 'pointer',
     };
-    this.leftArrowButtonStyles = {
-      position: 'fixed',
-      top: '50%',
-      float: 'left',
-      display: 'block',
+    this.FlexRow = {
+      display: 'flex',
+      flexWrap: 'nowrap',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      cursor: 'pointer',
     };
-    this.rightArrowButtonStyles = {
-      position: 'fixed',
-      top: '40%',
-      float: 'right',
-      display: 'block',
+    this.CrossButtonStyles = {
+      alignSelf: 'flex-end',
+      cursor: 'pointer',
     };
-    this.ImageSlideStyles = {
-      position: 'fixed',
-      float: 'center',
-      width: '650px',
-      height: '480px',
-      left: '50%',
-      top: '50%',
-      marginLeft: '-296px',
-      marginTop: '-256px',
+    this.LeftArrowButtonStyles = {
+      alignContent: 'center',
+      justifyContent: 'center',
+      order: 1,
+    };
+    this.RightArrowButtonStyles = {
+      justifyContent: 'center',
+      order: 3,
+    };
+    this.MainSlide = {
+      maxWidth: '650px',
+      maxHeight: '480px',
+      minWidth: '650px',
+      minHeight: '480px',
+    };
+    this.ImageSlidePosition = {
+      alignSelf: 'center',
+      alignContent: 'center',
+      order: 2,
+    };
+    this.SlideShowFlexBox = {
+      alignSelf: 'center',
+      order: 4,
     };
     this.SmallSlideStyles = {
-      position: 'fixed',
       width: '100px',
       height: '67px',
     };
@@ -53,7 +64,8 @@ class Carousel extends React.Component {
       return collection.slice(0, 7);
     }
     return currentIndex > collection.length - 4 ? collection.slice(collection.length - 7) : collection.slice(currentIndex - 3, currentIndex + 4);
-  };
+  }
+
   previousSlide() {
     const imgUrls = this.props.collection;
     const lastIndex = imgUrls.length - 1;
@@ -81,30 +93,27 @@ class Carousel extends React.Component {
   }
 
   render() {
-    console.log(this.state.currectSlideDeck);
     return (
-      <div>
-          <button style={this.crossButtonStyles} onClick={this.props.clickFunction}>
+      <div style={this.FlexCol}>
+        <div style={this.CrossButtonStyles}>
+          <button onClick={this.props.clickFunction}>
           &#xe079;
           </button>
-          <div>
-              <span>
-                  <button style={this.leftArrowButtonStyles}>
-                      <Arrow direction="left" clickFunction={this.previousSlide} glyph="&#9664;" />
-                  </button>
-              </span>
-              <span>
-                  <ImageSlide styles={this.ImageSlideStyles} room={this.props.collection[this.state.currentImageIndex]} clickFunction={this.nextSlide} />
-              </span>
-              <span>
-                  <button style={this.rightArrowButtonStyles}>
-                      <Arrow direction="right" clickFunction={this.nextSlide} glyph="&#9654;" />
-                  </button>
-              </span>
+        </div>
+        <div style={this.FlexRow}>
+          <div style={this.LeftArrowButtonStyles}>
+            <Arrow direction="left" clickFunction={this.previousSlide} glyph="&#9664;" />
           </div>
-          <div>
-            <SlideShow styles={this.SmallSlideStyles} collection={this.state.currectSlideDeck} />
+          <div style={this.ImageSlidePosition}>
+              <ImageSlide styles={this.MainSlide} room={this.props.collection[this.state.currentImageIndex]} clickFunction={this.nextSlide} />
           </div>
+          <div style={this.RightArrowButtonStyles}>
+            <Arrow direction="right" clickFunction={this.nextSlide} glyph="&#9654;" />
+          </div>
+        </div>
+        <div style={this.SlideShowFlexBox}>
+          <SlideShow styles={this.SmallSlideStyles} collection={this.state.currectSlideDeck} />
+        </div>
       </div>
     );
   }
