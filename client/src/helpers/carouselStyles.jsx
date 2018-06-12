@@ -58,6 +58,7 @@ cssCarouselStyles.DescriptionButton = {
   outline: 'none',
   border: 'none',
   color: 'white',
+  cursor: 'pointer',
 };
 cssCarouselStyles.SlideShowFlexBox = {
   alignSelf: 'center',

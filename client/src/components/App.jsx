@@ -9,13 +9,14 @@ class App extends React.Component {
     this.state = {
       collection: [],
       showCarousel: false,
+      roomId: window.location.pathname.split('/')[2],
     };
     this.toggleCarousel = this.toggleCarousel.bind(this);
   }
 
   async componentDidMount() {
     try {
-      const response = await axios.get('/Photos/64');
+      const response = await axios.get(`/Photos/${this.state.roomId}`);
       this.setState({
         collection: response.data,
       });
@@ -36,7 +37,7 @@ class App extends React.Component {
         {this.state.collection.length > 0 ?
         <Banner clickFunction={this.toggleCarousel} room={this.state.collection[0]} /> :
         null
-      }
+        }
         {this.state.showCarousel ?
         <BackgroundLayout clickFunction={this.toggleCarousel} collection={this.state.collection} /> :
         null
