@@ -7,7 +7,7 @@ const outputPath = path.join(__dirname, '/public/dist');
 module.exports = {
   entry: ['babel-polyfill', entryPath],
   output: {
-    filename: 'bundle.js',
+    filename: 'bundlePhotos.js',
     path: outputPath,
   },
   module: {
@@ -21,8 +21,8 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
-        use: ['eslint-loader', 'style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        test: /\.css$/,
+        use: ['eslint-loader', 'style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
