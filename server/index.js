@@ -3,6 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const db = require('./connection.js');
 // const helper = require('../helpers/getPhotos.js');
+
 const PORT = process.env.PORT || 3003;
 
 const app = express();
