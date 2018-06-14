@@ -20,6 +20,7 @@ const urlReplacer = (arrayOfUrls) => {
 };
 const validUrlsGenerator = (urls) => {
   urlReplacer(urls.map(img => `https://s3.us-east-2.amazonaws.com/airfec/${img.Key}`));
+  console.log('images updated!');
 };
 
 const updatePhotos = () => {
