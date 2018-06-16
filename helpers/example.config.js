@@ -3,4 +3,4 @@ const header = {
   accessKeyId: 'REPLACE_THIS_WITH_YOUR_ACCESS_ID_KEY',
 };
 
-export default { header };
+module.exports.header = header;

@@ -10,6 +10,8 @@ const BackgroundLayout = (props) => {
     right: 0,
     background: 'rgba(0,0,0,0.9)',
     cursor: 'pointer',
+    zIndex: '1',
+    overflow: 'hidden',
   };
 
   return (

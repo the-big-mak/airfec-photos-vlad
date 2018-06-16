@@ -5,7 +5,7 @@ const db = require('../server/connection.js');
 AWS.config.update({
   accessKeyId: config.header.accessKeyId,
   secretAccessKey: config.header.secretAccessKey,
-  region: 'us-east-2',
+  region: 'us-east-1',
 });
 const urlReplacer = (arrayOfUrls) => {
   const currentUrl = urls => urls[Math.floor(Math.random() * urls.length)];
@@ -19,13 +19,13 @@ const urlReplacer = (arrayOfUrls) => {
   }
 };
 const validUrlsGenerator = (urls) => {
-  urlReplacer(urls.map(img => `https://s3.us-east-2.amazonaws.com/airfec/${img.Key}`));
+  urlReplacer(urls.map(img => `https://s3.us-east-1.amazonaws.com/airfec2/${img.Key}`));
   console.log('images updated!');
 };
 
 const updatePhotos = () => {
   const bucketParams = {
-    Bucket: 'airfec',
+    Bucket: 'airfec2',
   };
 
   const s3 = new AWS.S3();

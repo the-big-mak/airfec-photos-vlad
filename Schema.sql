@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS photoList;
+DROP DATABASE IF EXISTS photolist;
 
-CREATE DATABASE photoList;
+CREATE DATABASE photolist;
 
-USE photoList;
+USE photolist;
 
 CREATE TABLE photos (
 id int NOT NULL AUTO_INCREMENT,

@@ -2,8 +2,9 @@ import React from 'react';
 
 const Banner = (props) => {
   const styles = {
+    position: 'relative',
     backgroundImage: `url(${props.room.url})`,
-    height: 325,
+    height: 702,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',

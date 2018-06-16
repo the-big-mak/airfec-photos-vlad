@@ -20,21 +20,25 @@ Recreating Airbnb item details page
 
 INITIAL SET UP
 1. Create Account on https://aws.amazon.com/s3/
-2. Retrieve Generate Security Credentials (https://imgur.com/Mb1AkoG, https://imgur.com/bffxIfi)
+2. Retrieve Security Credentials (https://imgur.com/Mb1AkoG, https://imgur.com/bffxIfi)
 3. Rename helpers/example.config.js into config.js with your credentials
 4. Rename helpers/example.mysqlConfig.js into mysqlConfig.js with your mysql username and password
 5. Run mysql.server start
 6. Populate schema with a fake data: mysql -u [USERNAME] -p < schema.sql (DEFAULT EXAMPLE: mysql -u root < schema.sql);
     NOTE: At this point urls in table are fake.
 7. In server/index.js uncomment 2 lines to use helper function (helper.updatePhotos();) (https://imgur.com/5JVpkuL);
-    (this will create API request to s3 server and updates database with urls from MY s3 bucket, if you want to use your images see USING OWN IMAGES)
-8. Start your server
+    (this will create API request to s3 server and updates database with urls from MY s3 bucket, if you want to use your images see CUSTOMIZATION)
+8. Start server (npm start);
 9. When you see 'image updated!' in your terminal it means that your database is now populated with some real image urls.
-10. Comment out helper function (helper.updatePhotos();)
+10. Comment out helper function 
+    ```
+    helper.updatePhotos();
+    ```
+
     NOTE: If you will not comment those out it will change database each time you call server
 
 
-USING OWN IMAGES
+CUSTOMIZATION
 1. Create a bucket on your s3 account.
     NOTE: Make your bucket AND all images public
 2. Drag and drop your images directly in that bucket (do not create any folders)

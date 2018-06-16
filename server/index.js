@@ -2,12 +2,19 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const db = require('./connection.js');
-// const helper = require('../helpers/getPhotos.js');
+const helper = require('../helpers/getPhotos.js');
 
 const PORT = process.env.PORT || 3003;
 
 const app = express();
 app.use(cors());
+let needPhotos = true;
+
+if (needPhotos) {
+  helper.updatePhotos();
+  needPhotos = false;
+}
+
 app.use('/rooms/:id', express.static(path.join(__dirname, '../public/dist')));
 
 app.get('/Photos/:id', (req, res) => {
@@ -16,6 +23,5 @@ app.get('/Photos/:id', (req, res) => {
 });
 
 // to update the database with pictures from s3
-// helper.updatePhotos();
 
 app.listen(PORT);
